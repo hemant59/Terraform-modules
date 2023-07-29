@@ -10,6 +10,10 @@ module "subnet" {
   cidr_block = var.subnet_cidr_block
 }
 
+resource "aws_instance" "testing" {
+  ami           = "ami-06464c878dbe46da4"
+  instance_type = "t2.micro"
+}
 module "sg" {
   source = "./modules/aws_security group"
   vpc_id = module.vpc.vpc_id
